@@ -26,6 +26,10 @@ public class OptionsChange : MonoBehaviour {
 		SetRandomPlayerOrder(randomPlayerToggle.isOn);
 	}
 
+	public void SaveButton() {
+		data.Save();
+	}
+
 	public void SetRandomPlayerOrder(bool toggle) {
 		if (toggle) {
 			data.RandomPlayerOrder = true;

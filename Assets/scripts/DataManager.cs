@@ -1,8 +1,28 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[CreateAssetMenu(fileName="DataManager", menuName="", order = 1)]
-public class DataManager : ScriptableObject {
+public class DataManager : MonoBehaviour {
+
+	private SaveData save;
+	private string json;
+
+	private static DataManager m;
+
+  public static DataManager Instance { get { return m; } }
+
+  private void Awake() {
+    if (m != null && m != this) {
+      Destroy(this.gameObject);
+    } else {
+      m = this;
+    }
+    DontDestroyOnLoad(transform.gameObject);
+  }
+
+	void Start() {
+		save = SaveData.CreateFromJSON(json);
+		print(save);
+	}
 
 	private int
 		currentIndex,
@@ -46,8 +66,27 @@ public class DataManager : ScriptableObject {
 		set {randomPlayerOrder = value;}
 	}
 
+	public void Save() {
+		save = new SaveData();
+		save.turnTime = turnTime;
+		print(save.turnTime);
+	}
+	public void Load() {
+		save = new SaveData();
+		save.turnTime = turnTime;
+		print(save.turnTime);
+	}
+
+}
 
 
+[System.Serializable]
+public class SaveData {
+  public float turnTime;
+  public float timeElapsed;
 
-
+  public static SaveData CreateFromJSON(string json)
+	{
+		return JsonUtility.FromJson<SaveData>(json);
+	}
 }

@@ -40,11 +40,13 @@ public class uiManager : MonoBehaviour
             canvas.GetComponent<CanvasGroup>().alpha = 0;
             canvas.GetComponent<CanvasGroup>().interactable = false;
             canvas.GetComponent<CanvasGroup>().blocksRaycasts = false;
+            canvas.SetActive(false);
         }
         else {
             canvas.GetComponent<CanvasGroup>().alpha = 1;
             canvas.GetComponent<CanvasGroup>().interactable = true;
             canvas.GetComponent<CanvasGroup>().blocksRaycasts = true;
+            canvas.SetActive(true);
         }
     }
 

@@ -34,3 +34,4 @@ sysinfo.txt
 *.sublime-workspace
 *.sublime-project
 *.DS_Store
+ProjectSettings/InputManager.asset

@@ -21,6 +21,7 @@ public class HUDManager : MonoBehaviour {
 
 	void Start() {
 		numberOfPlayers = data.TotalPlayers;
+		print("Number of players: " + numberOfPlayers);
 		for	(int i = 0; i < numberOfPlayers; i++) {
 			turnDisplayText[i].SetActive(true);
 		}

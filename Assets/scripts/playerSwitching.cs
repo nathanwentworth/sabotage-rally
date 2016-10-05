@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+// remove scenemanagement later!
+using UnityEngine.SceneManagement;
 
 public class PlayerSwitching : MonoBehaviour
 {
@@ -51,6 +53,9 @@ public class PlayerSwitching : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetButton("Pause")) {
+            SceneManager.LoadScene(0);
+        }
         if (!DEBUG_MODE)
         {
             if (!playerWin)
